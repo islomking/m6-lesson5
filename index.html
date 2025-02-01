@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script style=>
+        document.addEventListener("DOMContentLoaded", function() {
+            const darkModeToggle = document.getElementById("dark-mode-toggle");
+            const body = document.body;
+            
+           
+            if (localStorage.getItem("dark-mode") === "enabled") {
+                body.classList.add("dark-mode");
+            }
+            
+            darkModeToggle.addEventListener("click", function() {
+                body.classList.toggle("dark-mode");
+                
+                if (body.classList.contains("dark-mode")) {
+                    localStorage.setItem("dark-mode", "enabled");
+                } else {
+                    localStorage.setItem("dark-mode", "disabled");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>TODO LIST</h1>
+        <button id="dark-mode-toggle">🌙</button>
+        <input type="text" id="todo-input" placeholder="Введите задачу...">
+        <button id="add-todo">Добавить</button>
+        <ul id="todo-list"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
